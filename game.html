@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>Stone-Paper-Scissors</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=fixed, initial-scale=1.0">
+</head>
+<body>
+<h1 >Stone-Paper-Scissors</h1>
+<ul >
+    <h2 >Rules</h2>
+    <li>Game will continue until anyone scores 10 points.</li>
+    <li>You will play against computer and have to respond first.</li>
+    <li>The computer responds instantly as soon as you click so do not feel cheated anyway.</li>
+    <li>You will find three buttons representing rock, paper and scissors respectively, so to start just click on anyone and enjoy.</li>
+    <li>Note: Points are not given to anyone if both chose same and other rules are as usual.</li>
+</ul>
+<span style="background-color: darkblue;"><h4> Your Score</h4>
+    <p id="U">0</p>
+</span>
+<span style="background-color: darkblue;"><h4> Computer's Score</h4>
+    <p id ="C">0</p>
+</span>
+    <br>
+    <span style="background-color:none; border: none">
+    <h3 style="background-color: blue;">Your Turn:</h3>
+<button id="a" onclick="stone()" style="background-color:hotpink;">Stone</button>
+<button id="b" onclick="paper()" style="background-color:#F1C40F;">Paper</button>
+<button id="c" onclick="scissors()" style="background-color:deepskyblue;">Scissors</button>
+<h3 style="background-color: blue;">Computer's Turn:</h3>
+<div id="Cchoice" >WAITING....</div>
+    </span>
+    
+  <span style="background-color:darkslateblue; width:55%; border: double;">
+    <h3 style="border-bottom: solid; width: 100%; color: antiquewhite;">Comment:</h3>
+      <p id ="comment" style="font-size: 50px; color: beige; height: 160px;">Don't forget to read all the rules.</p>
+    </span>
+    
+    
+   <script> 
+       alert("It is recommended to use brower in maximized form.")
+       let name = prompt("What's your name?", "Guest");
+       let yourscore = 0;
+       let compscore = 0;
+    function stone(){
+        let a = document.getElementById('a')
+        let U = document.getElementById('U')
+        let C = document.getElementById('C')
+        var x = Math.floor((Math.random() * 3) + 1);
+        console.log('clicked')
+        console.log(x)
+        if(x==1){
+            document.getElementById("comment").innerHTML = "Both chose same. :|";
+        }
+        if(x==2){
+            document.getElementById("Cchoice").innerHTML = 'PAPER';
+            compscore=compscore+1;
+            document.getElementById("C").innerHTML = compscore;
+            if(compscore<=5){
+               document.getElementById("comment").innerHTML = "Try again!!! It's not too late."; 
+            }
+            else if(compscore<10){
+                document.getElementById("comment").innerHTML = "Be clam. And think before next move.";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "YOU LOSE "+name+"!!!TRY GAIN :(";
+            }
+        }
+        if(x==3){
+            document.getElementById("Cchoice").innerHTML = ' SCISSORS';
+            yourscore=yourscore+1;
+            document.getElementById("U").innerHTML = yourscore;
+            if(yourscore<=5){
+               document.getElementById("comment").innerHTML = "GOOD!!! Keep it up!"; 
+            }
+            else if(yourscore<10){
+                document.getElementById("comment").innerHTML = "EXCELLENT!!! You will definitely win. :)";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "CONGRATS YOU WON!!! PLAY GAIN :)";
+            }
+        }
+    }
+       function paper(){
+        let a = document.getElementById('b')
+        let U = document.getElementById('U')
+        let C = document.getElementById('C')
+        var x = Math.floor((Math.random() * 3) + 1);
+        console.log('clicked')
+        console.log(x)
+        if(x==2){
+            document.getElementById("comment").innerHTML = "Both chose same. :|";
+        }
+        if(x==3){
+            document.getElementById("Cchoice").innerHTML = ' SCISSORS';
+            compscore=compscore+1;
+            document.getElementById("C").innerHTML = compscore;
+            if(compscore<=5){
+               document.getElementById("comment").innerHTML = "Try again!!! It's not too late."; 
+            }
+            else if(compscore<10){
+                document.getElementById("comment").innerHTML = "Be clam. And think before next move.";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "YOU LOSE!!! TRY GAIN :(";
+            }
+        }
+        if(x==1){
+            document.getElementById("Cchoice").innerHTML = 'STONE';
+            yourscore=yourscore+1;
+            document.getElementById("U").innerHTML = yourscore;
+            if(yourscore<=5){
+               document.getElementById("comment").innerHTML = "GOOD!!! Keep it up!"; 
+            }
+            else if(yourscore<10){
+                document.getElementById("comment").innerHTML = "EXCELLENT!!! You will definitely win. :)";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "CONGRATS YOU WON!!! PLAY GAIN :)";
+            }
+        }
+           
+    }
+       function scissors(){
+        let a = document.getElementById('c')
+        let U = document.getElementById('U')
+        let C = document.getElementById('C')
+        var x = Math.floor((Math.random() * 3) + 1);
+        console.log('clicked')
+        console.log(x)
+        if(x==3){
+            document.getElementById("comment").innerHTML = "Both chose same. :|";
+        }
+        if(x==1){
+            document.getElementById("Cchoice").innerHTML = 'STONE';
+            compscore=compscore+1;
+            document.getElementById("C").innerHTML = compscore;
+            if(compscore<=5){
+               document.getElementById("comment").innerHTML = "Try again!!! It's not too late."; 
+            }
+            else if(compscore<10){
+                document.getElementById("comment").innerHTML = "Be clam. And think before next move.";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "YOU LOSE!!! TRY GAIN :(";
+            }
+        }
+        if(x==2){
+            document.getElementById("Cchoice").innerHTML = 'PAPER';
+            yourscore=yourscore+1;
+            document.getElementById("U").innerHTML = yourscore;
+            if(yourscore<=5){
+               document.getElementById("comment").innerHTML = "GOOD!!! Keep it up!"; 
+            }
+            else if(yourscore<10){
+                document.getElementById("comment").innerHTML = "EXCELLENT!!! You will definitely win. :)";
+            }
+            else{
+               yourscore=0;
+                compscore=0;
+                document.getElementById("C").innerHTML = compscore;
+                document.getElementById("U").innerHTML = yourscore;
+                document.getElementById("comment").innerHTML = "CONGRATS YOU WON!!! PLAY GAIN :)";
+            }
+        }
+    }
+</script>
+</body>
+</html>
